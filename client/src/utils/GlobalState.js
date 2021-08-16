@@ -1,14 +1,16 @@
-import React from "react";
-import { reducer } from './reducers';
-import {createStore} from 'redux';
-import {Provider} from 'react-redux';
+// import React, { createContext, useContext } from "react";
+// import { useProductReducer } from './reducers'
+// import { Provider } from 'react-redux';
+// import store from './store';
 
-const store = createStore(reducer);
+import React from "react";
+import { Provider } from 'react-redux';
+import store from './store';
 
 // const StoreContext = createContext();
 // const { Provider } = StoreContext;
 
-const StoreProvider = ({store, ...props }) => {
+// const StoreProvider = ({ value = [], ...props }) => {
   // const [state, dispatch] = useProductReducer({
   //   products: [],
   //   cart: [],
@@ -17,6 +19,10 @@ const StoreProvider = ({store, ...props }) => {
   //   currentCategory: '',
   // });
 
+  // return <Provider value={[state, dispatch]} {...props} />;
+// };
+
+const StoreProvider = ({...props }) => {
   return <Provider store={store} {...props} />;
 };
 
@@ -24,4 +30,6 @@ const StoreProvider = ({store, ...props }) => {
 //   return useContext(StoreContext);
 // };
 
-export { StoreProvider, store};
+// export { StoreProvider, useStoreContext };
+
+export { StoreProvider };
